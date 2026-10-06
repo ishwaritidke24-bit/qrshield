@@ -1,0 +1,46 @@
+{
+  "risk_level": "HIGH_RISK",
+  "confidence": 0.82,
+  "poster_analysis": {
+    "claimed_organization": "College admissions office (as printed on the poster)",
+    "offer": "Admission application with no application fee",
+    "requested_action": "Scan the QR code to apply",
+    "payment_claim": "free",
+    "urgency_claim": "mild",
+    "deadline": null,
+    "other_claims": ["No Application Fee"]
+  },
+  "destination_analysis": {
+    "apparent_purpose": "Immediate UPI payment of INR 499 to an individual",
+    "apparent_organization": "Individual payee 'Rahul Kumar' (rahulk1998@okaxis), not an institution",
+    "requested_user_action": "Approve a UPI payment of INR 499 labelled 'Application Fee'",
+    "collects_credentials": "no",
+    "requests_payment": "yes",
+    "matches_poster_claims": "mismatch"
+  },
+  "contradictions": [
+    {
+      "poster_claim": "No Application Fee",
+      "destination_observation": "The QR code is a UPI payment request for INR 499 with the note 'Application Fee'",
+      "severity": "high"
+    },
+    {
+      "poster_claim": "Application handled by the institution",
+      "destination_observation": "The payee is a personal-looking UPI account (rahulk1998@okaxis, 'Rahul Kumar'), not a merchant or institution handle",
+      "severity": "medium"
+    }
+  ],
+  "evidence": [
+    { "fact": "The QR code is a UPI payment request rather than a link to an application form.", "source": "deterministic", "fact_id": "F1", "supports": "risk" },
+    { "fact": "The amount INR 499 is prefilled in the request.", "source": "deterministic", "fact_id": "F2", "supports": "risk" },
+    { "fact": "The payee VPA looks like a personal account, not a merchant.", "source": "deterministic", "fact_id": "F4", "supports": "risk" },
+    { "fact": "The transaction note itself says 'Application Fee', directly contradicting the poster.", "source": "deterministic", "fact_id": "F5", "supports": "risk" },
+    { "fact": "The poster prominently states there is no application fee.", "source": "model", "fact_id": null, "supports": "risk" }
+  ],
+  "uncertainties": [
+    "The institution named on the poster could not be verified from the image alone.",
+    "It is possible, though unlikely, that the poster is outdated and a fee was introduced later."
+  ],
+  "recommended_action": "Do not pay; contact the admissions office through its official website or phone number and ask whether any fee applies.",
+  "summary_for_user": "The poster says there is no application fee, but the QR code does not open an application form at all: it is a UPI payment request for INR 499 to a personal-looking account named 'Rahul Kumar', with the note 'Application Fee'. The physical claim and the digital action contradict each other directly. This is highly suspicious; verify with the institution before paying anything."
+}

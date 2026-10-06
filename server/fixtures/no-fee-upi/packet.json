@@ -1,0 +1,52 @@
+{
+  "schema_version": "1.0",
+  "investigation_id": "fixture-no-fee-upi",
+  "qr": {
+    "decoded": true,
+    "payload_type": "upi",
+    "raw": "upi://pay?pa=rahulk1998@okaxis&pn=Rahul%20Kumar&am=499&cu=INR&tn=Application%20Fee",
+    "decode_error": null,
+    "count": 1
+  },
+  "payload": {
+    "kind": "upi",
+    "parsed": { "pa": "rahulk1998@okaxis", "pn": "Rahul Kumar", "am": "499", "cu": "INR", "tn": "Application Fee", "mc": null },
+    "fetchable": false,
+    "reason": "UPI payment request; nothing to fetch"
+  },
+  "url_parts": null,
+  "technical_signals": [
+    { "id": "upi_payment_request", "strength": "medium", "fact": "The QR code is a UPI payment request, not a web link.", "value": "upi://pay", "hybrid": false },
+    { "id": "upi_amount_prefilled", "strength": "medium", "fact": "The payment request has a prefilled amount of INR 499.", "value": "499", "hybrid": false },
+    { "id": "upi_individual_looking_vpa", "strength": "weak", "fact": "The payee VPA rahulk1998@okaxis looks like a personal account (name plus digits) rather than a merchant.", "value": "rahulk1998@okaxis", "hybrid": false }
+  ],
+  "redirect_chain": [],
+  "redirect_chain_meta": { "hop_count": 0, "cross_domain": false, "shortener_expanded": false, "chain_truncated": false },
+  "destination": {
+    "fetched": false,
+    "fetch_error": "not_fetchable",
+    "final_url": null,
+    "http_status": null,
+    "content_type": null,
+    "page_title": null,
+    "meta_description": null,
+    "visible_text_excerpt": null,
+    "forms": [],
+    "sensitive_inputs": { "password": false, "payment_card": false, "otp": false, "upi": false, "aadhaar": false, "pan": false, "bank": false },
+    "external_links_count": 0,
+    "top_external_hosts": [],
+    "has_download_links": false,
+    "language_hint": null,
+    "meta_refresh_target": null,
+    "bot_wall_detected": false
+  },
+  "server_facts": [
+    { "id": "F1", "text": "The QR code is a UPI payment request (upi://pay), not a web link." },
+    { "id": "F2", "text": "The payment request carries a prefilled amount of INR 499." },
+    { "id": "F3", "text": "The payee is rahulk1998@okaxis, displayed as 'Rahul Kumar'." },
+    { "id": "F4", "text": "The payee VPA looks like a personal account (name plus digits), not a merchant handle." },
+    { "id": "F5", "text": "The transaction note in the request reads 'Application Fee'." },
+    { "id": "F6", "text": "There was no web destination to fetch for this payload." }
+  ],
+  "deterministic_floor": { "level": null, "triggered_by": [] }
+}

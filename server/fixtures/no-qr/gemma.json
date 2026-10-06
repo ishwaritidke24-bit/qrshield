@@ -1,0 +1,32 @@
+{
+  "risk_level": "INSUFFICIENT_EVIDENCE",
+  "confidence": 0.2,
+  "poster_analysis": {
+    "claimed_organization": null,
+    "offer": null,
+    "requested_action": "Scan a QR code (the code itself could not be read)",
+    "payment_claim": "unspecified",
+    "urgency_claim": "none",
+    "deadline": null,
+    "other_claims": []
+  },
+  "destination_analysis": {
+    "apparent_purpose": null,
+    "apparent_organization": null,
+    "requested_user_action": null,
+    "collects_credentials": "unknown",
+    "requests_payment": "unknown",
+    "matches_poster_claims": "unknown"
+  },
+  "contradictions": [],
+  "evidence": [
+    { "fact": "No QR code could be decoded from the image.", "source": "deterministic", "fact_id": "F1", "supports": "neutral" },
+    { "fact": "Without a payload there is no destination to compare against the poster.", "source": "deterministic", "fact_id": "F2", "supports": "neutral" }
+  ],
+  "uncertainties": [
+    "The QR code was not readable; the image may be blurry, cropped, too small or contain no code.",
+    "Poster claims could not be checked against any destination."
+  ],
+  "recommended_action": "Retake the photo closer and in better light, or paste the URL manually, then run the check again.",
+  "summary_for_user": "No QR code could be read from this image, so there is nothing to compare the poster against. Try a sharper, closer photo of the QR code, or enter the link manually."
+}

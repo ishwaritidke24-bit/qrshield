@@ -1,0 +1,53 @@
+{
+  "risk_level": "CRITICAL",
+  "confidence": 0.9,
+  "poster_analysis": {
+    "claimed_organization": "National Scholarship Portal (government scholarship scheme)",
+    "offer": "Rs 50,000 merit scholarship for students",
+    "requested_action": "Scan the QR code to verify eligibility and claim the scholarship",
+    "payment_claim": "refund_or_prize",
+    "urgency_claim": "strong",
+    "deadline": "Within 24 hours",
+    "other_claims": ["Shortlisted students only", "Funds released after verification"]
+  },
+  "destination_analysis": {
+    "apparent_purpose": "Collect login and payment-card details under the pretext of releasing scholarship funds",
+    "apparent_organization": "Page claims 'National Scholarship Portal' but is hosted on a free weebly.com site",
+    "requested_user_action": "Enter email, password, card number, CVV and OTP",
+    "collects_credentials": "yes",
+    "requests_payment": "yes",
+    "matches_poster_claims": "mismatch"
+  },
+  "contradictions": [
+    {
+      "poster_claim": "Official government scholarship portal",
+      "destination_observation": "Final page is on a free weebly.com subdomain reached through a bit.ly shortener, not a government domain",
+      "severity": "high"
+    },
+    {
+      "poster_claim": "Scholarship money will be paid to the student",
+      "destination_observation": "Page asks the student for card number, CVV and OTP, which are needed to take money, not to send it",
+      "severity": "high"
+    },
+    {
+      "poster_claim": "Verify eligibility",
+      "destination_observation": "Page requests a password and submits it over plain HTTP to a third-party host",
+      "severity": "high"
+    }
+  ],
+  "evidence": [
+    { "fact": "The final page has a form collecting card number, CVV and OTP.", "source": "deterministic", "fact_id": "F4", "supports": "risk" },
+    { "fact": "The page also collects a password.", "source": "deterministic", "fact_id": "F5", "supports": "risk" },
+    { "fact": "The form posts to a different origin than the page.", "source": "deterministic", "fact_id": "F6", "supports": "risk" },
+    { "fact": "The form submits over unencrypted HTTP.", "source": "deterministic", "fact_id": "F7", "supports": "risk" },
+    { "fact": "The destination is on free hosting (weebly.com), not a government domain.", "source": "deterministic", "fact_id": "F3", "supports": "risk" },
+    { "fact": "A shortener hid the real destination and redirected across domains.", "source": "deterministic", "fact_id": "F2", "supports": "risk" },
+    { "fact": "The poster's 24-hour deadline and 'congratulations, you were shortlisted' wording are classic pressure tactics.", "source": "model", "fact_id": null, "supports": "risk" }
+  ],
+  "uncertainties": [
+    "The poster's issuing body could not be independently confirmed from the image.",
+    "The page content is untrusted and may differ for other visitors."
+  ],
+  "recommended_action": "Do not scan or enter any details; report the poster to the institution displaying it and check scholarships only on the official government portal.",
+  "summary_for_user": "The poster promises a government scholarship, but the QR code leads through a link shortener to a free-hosting page that asks for your password, card number, CVV and OTP, and sends them unencrypted to a third-party server. Genuine scholarship payments never require card or OTP details. This is a critical signal and the QR code is highly suspicious; do not use it."
+}

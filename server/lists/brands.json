@@ -1,0 +1,23 @@
+[
+  {"name":"State Bank of India","domains":["sbi.co.in","onlinesbi.sbi","yonobusiness.sbi","sbicard.com"],"keywords":["sbi","onlinesbi","yono","sbicard"]},
+  {"name":"HDFC Bank","domains":["hdfcbank.com","hdfc.com","hdfcsec.com"],"keywords":["hdfc","hdfcbank"]},
+  {"name":"ICICI Bank","domains":["icicibank.com","icicidirect.com","icicipruamc.com"],"keywords":["icici","icicibank"]},
+  {"name":"Axis Bank","domains":["axisbank.com","axisbank.co.in"],"keywords":["axisbank"]},
+  {"name":"Paytm","domains":["paytm.com","paytmbank.com","paytm.in","paytmpayments.com"],"keywords":["paytm"]},
+  {"name":"PhonePe","domains":["phonepe.com","phon.pe"],"keywords":["phonepe"]},
+  {"name":"Google Pay","domains":["pay.google.com","google.com","g.co"],"keywords":["gpay","googlepay"]},
+  {"name":"UPI / NPCI","domains":["npci.org.in","upichalega.com","bhimupi.org.in"],"keywords":["npci","bhimupi"]},
+  {"name":"UGC","domains":["ugc.gov.in","ugc.ac.in","ugcnet.nta.ac.in","nta.ac.in"],"keywords":["ugc","ugcnet"]},
+  {"name":"National Scholarship Portal","domains":["scholarships.gov.in"],"keywords":["scholarships-gov","nsp-gov","nationalscholarship","scholarshipsgov"]},
+  {"name":"AICTE","domains":["aicte-india.org","aicte.gov.in"],"keywords":["aicte"]},
+  {"name":"IRCTC","domains":["irctc.co.in","irctc.com"],"keywords":["irctc"]},
+  {"name":"Amazon","domains":["amazon.com","amazon.in","amazon.co.uk","amzn.to","amzn.in","primevideo.com","amazonaws.com"],"keywords":["amazon","amzn"]},
+  {"name":"Flipkart","domains":["flipkart.com","fkrt.it","fkrt.co"],"keywords":["flipkart"]},
+  {"name":"Google","domains":["google.com","google.co.in","goo.gl","g.co","gmail.com","youtube.com","googleapis.com","gstatic.com","withgoogle.com"],"keywords":["google","gmail","youtube"]},
+  {"name":"Microsoft","domains":["microsoft.com","live.com","office.com","outlook.com","microsoftonline.com","msn.com","azure.com","windows.com","xbox.com"],"keywords":["microsoft","outlook","office365","onedrive","sharepoint"]},
+  {"name":"Apple","domains":["apple.com","icloud.com","apple.co"],"keywords":["icloud","appleid"]},
+  {"name":"Netflix","domains":["netflix.com","nflx.it"],"keywords":["netflix"]},
+  {"name":"WhatsApp","domains":["whatsapp.com","wa.me","whatsapp.net"],"keywords":["whatsapp"]},
+  {"name":"Instagram","domains":["instagram.com","instagr.am","ig.me"],"keywords":["instagram"]},
+  {"name":"Facebook","domains":["facebook.com","fb.com","fb.me","messenger.com","meta.com","fbcdn.net"],"keywords":["facebook"]}
+]

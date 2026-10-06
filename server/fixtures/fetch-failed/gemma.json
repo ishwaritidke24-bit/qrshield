@@ -1,0 +1,35 @@
+{
+  "risk_level": "INSUFFICIENT_EVIDENCE",
+  "confidence": 0.4,
+  "poster_analysis": {
+    "claimed_organization": "Event organiser named on the poster",
+    "offer": "Registration for a 2026 event",
+    "requested_action": "Scan the QR code to apply or register",
+    "payment_claim": "unspecified",
+    "urgency_claim": "mild",
+    "deadline": null,
+    "other_claims": []
+  },
+  "destination_analysis": {
+    "apparent_purpose": null,
+    "apparent_organization": null,
+    "requested_user_action": null,
+    "collects_credentials": "unknown",
+    "requests_payment": "unknown",
+    "matches_poster_claims": "unknown"
+  },
+  "contradictions": [],
+  "evidence": [
+    { "fact": "The destination could not be fetched, so the page content is unknown.", "source": "deterministic", "fact_id": "F4", "supports": "neutral" },
+    { "fact": "The domain uses the .xyz top-level domain, a weak signal on its own.", "source": "deterministic", "fact_id": "F2", "supports": "risk" },
+    { "fact": "The domain name contains several hyphens and digits, a weak signal on its own.", "source": "deterministic", "fact_id": "F3", "supports": "risk" },
+    { "fact": "The domain is a generic descriptive name rather than the organiser's own domain, which is common for both legitimate event sites and impostors.", "source": "model", "fact_id": null, "supports": "neutral" }
+  ],
+  "uncertainties": [
+    "The destination page could not be inspected because the server did not respond in time.",
+    "Whether the site collects payment or credentials is unknown.",
+    "The organiser on the poster could not be matched to the domain."
+  ],
+  "recommended_action": "Do not enter personal or payment details yet; try the organiser's official website or contact them directly to confirm the registration link.",
+  "summary_for_user": "The QR code points to event-registration-2026.xyz, but the site did not respond, so its content could not be checked. The only signals are weak ones (a cheap .xyz domain with hyphens and digits). There is not enough evidence to call this safe or unsafe; confirm the link with the organiser before using it."
+}

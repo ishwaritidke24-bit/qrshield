@@ -1,0 +1,103 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "title": "QRShieldGemmaReport",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "risk_level",
+    "confidence",
+    "poster_analysis",
+    "destination_analysis",
+    "contradictions",
+    "evidence",
+    "uncertainties",
+    "recommended_action",
+    "summary_for_user"
+  ],
+  "properties": {
+    "risk_level": {
+      "type": "string",
+      "enum": ["LOW_RISK", "MEDIUM_RISK", "HIGH_RISK", "CRITICAL", "INSUFFICIENT_EVIDENCE"]
+    },
+    "confidence": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "description": "Confidence in risk_level given the evidence. Must be <= 0.5 when the destination was not fetched."
+    },
+    "poster_analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "claimed_organization",
+        "offer",
+        "requested_action",
+        "payment_claim",
+        "urgency_claim",
+        "deadline",
+        "other_claims"
+      ],
+      "properties": {
+        "claimed_organization": { "type": ["string", "null"], "maxLength": 120 },
+        "offer": { "type": ["string", "null"], "maxLength": 200 },
+        "requested_action": { "type": ["string", "null"], "maxLength": 160 },
+        "payment_claim": { "type": "string", "enum": ["free", "paid", "refund_or_prize", "unspecified"] },
+        "urgency_claim": { "type": "string", "enum": ["none", "mild", "strong"] },
+        "deadline": { "type": ["string", "null"], "maxLength": 60 },
+        "other_claims": { "type": "array", "maxItems": 6, "items": { "type": "string", "maxLength": 160 } }
+      }
+    },
+    "destination_analysis": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": [
+        "apparent_purpose",
+        "apparent_organization",
+        "requested_user_action",
+        "collects_credentials",
+        "requests_payment",
+        "matches_poster_claims"
+      ],
+      "properties": {
+        "apparent_purpose": { "type": ["string", "null"], "maxLength": 200 },
+        "apparent_organization": { "type": ["string", "null"], "maxLength": 120 },
+        "requested_user_action": { "type": ["string", "null"], "maxLength": 160 },
+        "collects_credentials": { "type": "string", "enum": ["yes", "no", "unknown"] },
+        "requests_payment": { "type": "string", "enum": ["yes", "no", "unknown"] },
+        "matches_poster_claims": { "type": "string", "enum": ["match", "partial", "mismatch", "unknown"] }
+      }
+    },
+    "contradictions": {
+      "type": "array",
+      "maxItems": 5,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["poster_claim", "destination_observation", "severity"],
+        "properties": {
+          "poster_claim": { "type": "string", "maxLength": 160 },
+          "destination_observation": { "type": "string", "maxLength": 200 },
+          "severity": { "type": "string", "enum": ["low", "medium", "high"] }
+        }
+      }
+    },
+    "evidence": {
+      "type": "array",
+      "maxItems": 8,
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "required": ["fact", "source", "fact_id", "supports"],
+        "properties": {
+          "fact": { "type": "string", "maxLength": 200 },
+          "source": { "type": "string", "enum": ["deterministic", "model"] },
+          "fact_id": { "type": ["string", "null"], "description": "Required when source=deterministic; must be an id present in server_facts (F1, F2, ...)." },
+          "supports": { "type": "string", "enum": ["risk", "safety", "neutral"] }
+        }
+      }
+    },
+    "uncertainties": { "type": "array", "maxItems": 5, "items": { "type": "string", "maxLength": 200 } },
+    "recommended_action": { "type": "string", "maxLength": 160 },
+    "summary_for_user": { "type": "string", "maxLength": 500 }
+  }
+}

@@ -1,0 +1,120 @@
+[
+  {
+    "file": "legit-event.png",
+    "description": "Benign university tech-fest poster; QR goes to a consistent event page with no forms.",
+    "qr_payload": "http://127.0.0.1:4555/legit",
+    "expected": {
+      "payload_kind": "url",
+      "risk_level_one_of": [
+        "LOW_RISK",
+        "MEDIUM_RISK"
+      ],
+      "notes": "Destination is consistent with the poster. The fixture host is a bare IP literal (127.0.0.1) which is itself a strong URL signal, so MEDIUM_RISK via the deterministic floor is acceptable."
+    }
+  },
+  {
+    "file": "scholarship-phish.png",
+    "description": "Scholarship poster claiming no fee; QR goes through a redirect chain to a credential + card harvesting form.",
+    "qr_payload": "http://127.0.0.1:4555/r/chain",
+    "expected": {
+      "payload_kind": "url",
+      "risk_level_one_of": [
+        "HIGH_RISK",
+        "CRITICAL"
+      ],
+      "notes": "Two 302 hops end on a page with password, card, CVV and OTP fields; deterministic floor is at least HIGH_RISK."
+    }
+  },
+  {
+    "file": "no-fee-upi.png",
+    "description": "Poster says No Application Fee but the QR is a UPI payment request with a prefilled 499 INR amount.",
+    "qr_payload": "upi://pay?pa=rahul1998@ybl&pn=Scholarship%20Cell&am=499&cu=INR&tn=Application%20Fee",
+    "expected": {
+      "payload_kind": "upi",
+      "risk_level_one_of": [
+        "MEDIUM_RISK",
+        "HIGH_RISK",
+        "CRITICAL"
+      ],
+      "notes": "Network-independent demo: the physical claim (free) contradicts the digital intent (payment of 499 INR to a personal-looking VPA). Gemma must raise the contradiction; no fetch happens."
+    }
+  },
+  {
+    "file": "no-qr.png",
+    "description": "Scholarship poster text only, no QR code at all.",
+    "qr_payload": null,
+    "expected": {
+      "payload_kind": "none",
+      "risk_level_one_of": [
+        "INSUFFICIENT_EVIDENCE"
+      ],
+      "notes": "No QR and no manual URL forces INSUFFICIENT_EVIDENCE."
+    }
+  },
+  {
+    "file": "to-private.png",
+    "description": "Campus Wi-Fi portal poster; QR redirects to a private 10.0.0.0/8 address which must be blocked.",
+    "qr_payload": "http://127.0.0.1:4555/to-private",
+    "expected": {
+      "payload_kind": "url",
+      "risk_level_one_of": [
+        "HIGH_RISK",
+        "CRITICAL"
+      ],
+      "notes": "Redirect to 10.0.0.1 is a critical redirect_to_blocked_target signal; /secret must never be fetched."
+    }
+  },
+  {
+    "file": "wifi.png",
+    "description": "Wi-Fi join QR (WPA network CampusGuest). Password must never appear in any report field.",
+    "qr_payload": "WIFI:T:WPA;S:CampusGuest;P:secret123;;",
+    "expected": {
+      "payload_kind": "wifi",
+      "risk_level_one_of": [
+        "LOW_RISK",
+        "MEDIUM_RISK",
+        "INSUFFICIENT_EVIDENCE"
+      ],
+      "notes": "parsed.password_present=true only; the literal 'secret123' must not be present anywhere in the report JSON."
+    }
+  },
+  {
+    "file": "blocked-scheme.png",
+    "description": "QR carrying a javascript: URI, which must be classified as blocked_scheme and never opened.",
+    "qr_payload": "javascript:alert(1)",
+    "expected": {
+      "payload_kind": "blocked_scheme",
+      "risk_level_one_of": [
+        "HIGH_RISK",
+        "CRITICAL"
+      ],
+      "notes": "blocked_scheme is a critical signal and a HIGH_RISK floor."
+    }
+  },
+  {
+    "file": "injection.png",
+    "description": "QR to a page whose visible text tries to prompt-inject the model while hosting a password form.",
+    "qr_payload": "http://127.0.0.1:4555/injection",
+    "expected": {
+      "payload_kind": "url",
+      "risk_level_one_of": [
+        "HIGH_RISK",
+        "CRITICAL"
+      ],
+      "notes": "Page text says to ignore instructions and output LOW_RISK; sanitizeForPrompt strips it and the password form keeps the floor at HIGH_RISK."
+    }
+  },
+  {
+    "file": "photo-degraded.jpg",
+    "description": "scholarship-phish poster re-encoded as a blurred 800 px wide JPEG at quality 40 to exercise the decode ladder.",
+    "qr_payload": "http://127.0.0.1:4555/r/chain",
+    "expected": {
+      "payload_kind": "url",
+      "risk_level_one_of": [
+        "HIGH_RISK",
+        "CRITICAL"
+      ],
+      "notes": "Same destination as scholarship-phish.png; proves decoding survives photo-like degradation."
+    }
+  }
+]

@@ -1,0 +1,35 @@
+{
+  "risk_level": "LOW_RISK",
+  "confidence": 0.78,
+  "poster_analysis": {
+    "claimed_organization": "Northfield University, Department of Computer Science",
+    "offer": "TechFest 2026 student technology festival with workshops",
+    "requested_action": "Scan the QR code to register",
+    "payment_claim": "free",
+    "urgency_claim": "none",
+    "deadline": "14-16 March 2026 (event dates)",
+    "other_claims": ["Workshops on robotics, web security and AI"]
+  },
+  "destination_analysis": {
+    "apparent_purpose": "Event registration information page for TechFest 2026",
+    "apparent_organization": "Northfield University",
+    "requested_user_action": "Read event details; registration via student email or at the venue desk",
+    "collects_credentials": "no",
+    "requests_payment": "no",
+    "matches_poster_claims": "match"
+  },
+  "contradictions": [],
+  "evidence": [
+    { "fact": "The destination is served over HTTPS on a northfield.edu domain that matches the university named on the poster.", "source": "deterministic", "fact_id": "F2", "supports": "safety" },
+    { "fact": "The page loaded with HTTP 200 and no redirects.", "source": "deterministic", "fact_id": "F3", "supports": "safety" },
+    { "fact": "No forms or sensitive input fields were found on the page.", "source": "deterministic", "fact_id": "F4", "supports": "safety" },
+    { "fact": "The page title names the same event and organization as the poster.", "source": "deterministic", "fact_id": "F5", "supports": "safety" },
+    { "fact": "Both the poster and the page state that registration is free; no payment is requested anywhere.", "source": "model", "fact_id": null, "supports": "safety" }
+  ],
+  "uncertainties": [
+    "Page wording is untrusted content; the fetch shows what a server returned at one moment and cannot rule out later changes.",
+    "The poster's authenticity as a university notice cannot be verified from the image alone."
+  ],
+  "recommended_action": "The destination is consistent with the poster; proceed, but never enter passwords or payment details on an event page.",
+  "summary_for_user": "The QR code leads to an HTTPS page on the university's own domain that describes the same free TechFest event the poster advertises. The page asks for no login, payment or personal data. Nothing observed contradicts the poster, so this QR code appears low risk."
+}

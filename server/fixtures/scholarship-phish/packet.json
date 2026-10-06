@@ -1,0 +1,78 @@
+{
+  "schema_version": "1.0",
+  "investigation_id": "fixture-scholarship-phish",
+  "qr": {
+    "decoded": true,
+    "payload_type": "url",
+    "raw": "https://bit.ly/3xSch0lar",
+    "decode_error": null,
+    "count": 1
+  },
+  "payload": {
+    "kind": "url",
+    "parsed": { "url": "https://bit.ly/3xSch0lar" },
+    "fetchable": true,
+    "reason": null
+  },
+  "url_parts": {
+    "scheme": "https",
+    "host": "bit.ly",
+    "registrable_domain": "bit.ly",
+    "subdomain_labels": 0,
+    "port": null,
+    "path": "/3xSch0lar",
+    "query_keys": [],
+    "is_ip_literal": false,
+    "is_punycode": false,
+    "userinfo_present": false
+  },
+  "technical_signals": [
+    { "id": "payment_or_identity_fields_present", "strength": "critical", "fact": "The final page contains a form with card number, CVV and OTP fields.", "value": ["card", "otp"], "hybrid": false },
+    { "id": "credential_form_present", "strength": "strong", "fact": "The final page contains a form with a password field.", "value": "password", "hybrid": false },
+    { "id": "form_action_cross_origin", "strength": "strong", "fact": "The form submits to a different origin (collect-data-7731.000webhostapp.com) than the page.", "value": "collect-data-7731.000webhostapp.com", "hybrid": false },
+    { "id": "form_action_http", "strength": "strong", "fact": "The form submits over plain HTTP.", "value": "http://collect-data-7731.000webhostapp.com/collect", "hybrid": false },
+    { "id": "free_hosting_or_form_builder", "strength": "medium", "fact": "The final destination is hosted on a free hosting service (weebly.com).", "value": "weebly.com", "hybrid": false },
+    { "id": "url_shortener", "strength": "medium", "fact": "The QR URL uses the shortener bit.ly, which hides the real destination.", "value": "bit.ly", "hybrid": false },
+    { "id": "cross_domain_redirect", "strength": "medium", "fact": "The redirect chain crossed from bit.ly to scholarship-verify-portal.weebly.com.", "value": "weebly.com", "hybrid": false },
+    { "id": "login_or_verify_keywords_in_path", "strength": "weak", "fact": "The final URL path contains the word 'verify'.", "value": "/verify", "hybrid": false },
+    { "id": "destination_fetched_ok", "strength": "neutral", "fact": "The destination responded with HTTP 200 and an HTML page.", "value": 200, "hybrid": false }
+  ],
+  "redirect_chain": [
+    { "url": "https://bit.ly/3xSch0lar", "status": 301, "host": "bit.ly", "blocked": false, "blocked_reason": null },
+    { "url": "https://scholarship-verify-portal.weebly.com/verify", "status": 200, "host": "scholarship-verify-portal.weebly.com", "blocked": false, "blocked_reason": null }
+  ],
+  "redirect_chain_meta": { "hop_count": 1, "cross_domain": true, "shortener_expanded": true, "chain_truncated": false },
+  "destination": {
+    "fetched": true,
+    "fetch_error": null,
+    "final_url": "https://scholarship-verify-portal.weebly.com/verify",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "page_title": "Verify your identity to receive scholarship",
+    "meta_description": null,
+    "visible_text_excerpt": "National Scholarship Portal Verify your identity to receive scholarship. Congratulations! You have been shortlisted for the Rs 50,000 merit scholarship. To release the funds, confirm your identity and card details below within 24 hours. Email Password Card number CVV OTP Submit",
+    "forms": [
+      { "method": "post", "action_same_origin": false, "field_types": ["email", "password", "card", "card", "otp"] }
+    ],
+    "sensitive_inputs": { "password": true, "payment_card": true, "otp": true, "upi": false, "aadhaar": false, "pan": false, "bank": false },
+    "external_links_count": 0,
+    "top_external_hosts": ["collect-data-7731.000webhostapp.com"],
+    "has_download_links": false,
+    "language_hint": "en",
+    "meta_refresh_target": null,
+    "bot_wall_detected": false
+  },
+  "server_facts": [
+    { "id": "F1", "text": "The QR code decoded to a web URL using the shortener bit.ly, which hides the real destination." },
+    { "id": "F2", "text": "The shortener redirected (HTTP 301) to a different domain: scholarship-verify-portal.weebly.com." },
+    { "id": "F3", "text": "The final destination is hosted on the free hosting service weebly.com." },
+    { "id": "F4", "text": "The final page contains a form with card number, CVV and OTP fields (critical signal)." },
+    { "id": "F5", "text": "The final page contains a form with a password field." },
+    { "id": "F6", "text": "The form submits to a different origin (collect-data-7731.000webhostapp.com) than the page." },
+    { "id": "F7", "text": "The form submits over plain HTTP, not HTTPS." },
+    { "id": "F8", "text": "The final URL path contains the word 'verify'." },
+    { "id": "F9", "text": "The destination responded with HTTP 200 and an HTML page after 1 redirect." },
+    { "id": "F10", "text": "The page title is 'Verify your identity to receive scholarship' (untrusted page content)." }
+  ],
+  "deterministic_floor": { "level": "HIGH_RISK", "triggered_by": ["payment_or_identity_fields_present", "form_action_cross_origin", "form_action_http", "free_hosting_or_form_builder"] }
+}

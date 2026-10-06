@@ -1,0 +1,43 @@
+{
+  "name": "qrshield",
+  "version": "0.1.0",
+  "description": "QRShield: a multimodal security layer for QR codes. Deterministic URL/destination inspection plus Gemma 4 multimodal reasoning.",
+  "main": "server/index.js",
+  "type": "module",
+  "scripts": {
+    "dev:server": "node --watch server/index.js",
+    "dev:client": "npm --prefix client run dev",
+    "build:client": "npm --prefix client run build",
+    "start": "node server/index.js",
+    "test": "node --test \"tests/unit/*.test.js\"",
+    "test:gemma": "node test-gemma.js",
+    "test:image": "node test-image.js",
+    "fixtures": "node scripts/make-fixtures.js",
+    "fixture-server": "node scripts/fixture-server.js",
+    "e2e": "node tests/e2e/smoke.js",
+    "live-check": "node scripts/live-check.js"
+  },
+  "keywords": [
+    "qr",
+    "security",
+    "phishing",
+    "gemma",
+    "multimodal"
+  ],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@google/genai": "^2.27.0",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.5",
+    "express": "^5.2.1",
+    "jimp": "^1.6.1",
+    "jsqr": "^1.4.0",
+    "multer": "^2.4.0",
+    "node-html-parser": "^9.0.4",
+    "undici": "^7.0.0"
+  },
+  "devDependencies": {
+    "qrcode": "^1.5.4"
+  }
+}

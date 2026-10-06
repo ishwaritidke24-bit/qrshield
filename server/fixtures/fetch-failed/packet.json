@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "investigation_id": "fixture-fetch-failed",
+  "qr": {
+    "decoded": true,
+    "payload_type": "url",
+    "raw": "https://event-registration-2026.xyz/apply?ref=poster",
+    "decode_error": null,
+    "count": 1
+  },
+  "payload": {
+    "kind": "url",
+    "parsed": { "url": "https://event-registration-2026.xyz/apply?ref=poster" },
+    "fetchable": true,
+    "reason": null
+  },
+  "url_parts": {
+    "scheme": "https",
+    "host": "event-registration-2026.xyz",
+    "registrable_domain": "event-registration-2026.xyz",
+    "subdomain_labels": 0,
+    "port": null,
+    "path": "/apply",
+    "query_keys": ["ref"],
+    "is_ip_literal": false,
+    "is_punycode": false,
+    "userinfo_present": false
+  },
+  "technical_signals": [
+    { "id": "suspicious_tld", "strength": "weak", "fact": "The domain uses the .xyz top-level domain, which is cheap and frequently abused (weak signal).", "value": "xyz", "hybrid": false },
+    { "id": "many_hyphens_or_digits_in_domain", "strength": "weak", "fact": "The domain contains several hyphens and digits.", "value": "event-registration-2026", "hybrid": false },
+    { "id": "fetch_timeout", "strength": "neutral", "fact": "The destination did not respond within the time limit.", "value": 6000, "hybrid": false }
+  ],
+  "redirect_chain": [
+    { "url": "https://event-registration-2026.xyz/apply?ref=poster", "status": null, "host": "event-registration-2026.xyz", "blocked": false, "blocked_reason": null }
+  ],
+  "redirect_chain_meta": { "hop_count": 0, "cross_domain": false, "shortener_expanded": false, "chain_truncated": false },
+  "destination": {
+    "fetched": false,
+    "fetch_error": "fetch_timeout",
+    "final_url": null,
+    "http_status": null,
+    "content_type": null,
+    "page_title": null,
+    "meta_description": null,
+    "visible_text_excerpt": null,
+    "forms": [],
+    "sensitive_inputs": { "password": false, "payment_card": false, "otp": false, "upi": false, "aadhaar": false, "pan": false, "bank": false },
+    "external_links_count": 0,
+    "top_external_hosts": [],
+    "has_download_links": false,
+    "language_hint": null,
+    "meta_refresh_target": null,
+    "bot_wall_detected": false
+  },
+  "server_facts": [
+    { "id": "F1", "text": "The QR code decoded to a web URL (https://event-registration-2026.xyz/apply)." },
+    { "id": "F2", "text": "The domain uses the .xyz top-level domain (weak signal only)." },
+    { "id": "F3", "text": "The domain name contains several hyphens and digits (weak signal only)." },
+    { "id": "F4", "text": "The destination did not respond within the time limit; the page could not be inspected." }
+  ],
+  "deterministic_floor": { "level": null, "triggered_by": [] }
+}

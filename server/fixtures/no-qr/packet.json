@@ -1,0 +1,44 @@
+{
+  "schema_version": "1.0",
+  "investigation_id": "fixture-no-qr",
+  "qr": {
+    "decoded": false,
+    "payload_type": "none",
+    "raw": null,
+    "decode_error": "no QR code found after 8 decode attempts",
+    "count": 0
+  },
+  "payload": {
+    "kind": "none",
+    "parsed": {},
+    "fetchable": false,
+    "reason": "no QR payload"
+  },
+  "url_parts": null,
+  "technical_signals": [],
+  "redirect_chain": [],
+  "redirect_chain_meta": { "hop_count": 0, "cross_domain": false, "shortener_expanded": false, "chain_truncated": false },
+  "destination": {
+    "fetched": false,
+    "fetch_error": "not_fetchable",
+    "final_url": null,
+    "http_status": null,
+    "content_type": null,
+    "page_title": null,
+    "meta_description": null,
+    "visible_text_excerpt": null,
+    "forms": [],
+    "sensitive_inputs": { "password": false, "payment_card": false, "otp": false, "upi": false, "aadhaar": false, "pan": false, "bank": false },
+    "external_links_count": 0,
+    "top_external_hosts": [],
+    "has_download_links": false,
+    "language_hint": null,
+    "meta_refresh_target": null,
+    "bot_wall_detected": false
+  },
+  "server_facts": [
+    { "id": "F1", "text": "No QR code could be decoded from the image after 8 attempts." },
+    { "id": "F2", "text": "There was no payload or destination to analyse." }
+  ],
+  "deterministic_floor": { "level": null, "triggered_by": [] }
+}

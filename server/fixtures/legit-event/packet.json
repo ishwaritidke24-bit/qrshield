@@ -1,0 +1,63 @@
+{
+  "schema_version": "1.0",
+  "investigation_id": "fixture-legit-event",
+  "qr": {
+    "decoded": true,
+    "payload_type": "url",
+    "raw": "https://techfest.northfield.edu/register",
+    "decode_error": null,
+    "count": 1
+  },
+  "payload": {
+    "kind": "url",
+    "parsed": { "url": "https://techfest.northfield.edu/register" },
+    "fetchable": true,
+    "reason": null
+  },
+  "url_parts": {
+    "scheme": "https",
+    "host": "techfest.northfield.edu",
+    "registrable_domain": "northfield.edu",
+    "subdomain_labels": 1,
+    "port": null,
+    "path": "/register",
+    "query_keys": [],
+    "is_ip_literal": false,
+    "is_punycode": false,
+    "userinfo_present": false
+  },
+  "technical_signals": [
+    { "id": "uses_https", "strength": "neutral", "fact": "The URL uses HTTPS.", "value": "https", "hybrid": false },
+    { "id": "destination_fetched_ok", "strength": "neutral", "fact": "The destination responded with HTTP 200 and an HTML page.", "value": 200, "hybrid": false }
+  ],
+  "redirect_chain": [
+    { "url": "https://techfest.northfield.edu/register", "status": 200, "host": "techfest.northfield.edu", "blocked": false, "blocked_reason": null }
+  ],
+  "redirect_chain_meta": { "hop_count": 0, "cross_domain": false, "shortener_expanded": false, "chain_truncated": false },
+  "destination": {
+    "fetched": true,
+    "fetch_error": null,
+    "final_url": "https://techfest.northfield.edu/register",
+    "http_status": 200,
+    "content_type": "text/html; charset=utf-8",
+    "page_title": "TechFest 2026 Registration | Northfield University",
+    "meta_description": "Register for TechFest 2026, the annual student technology festival of Northfield University. Registration is free.",
+    "visible_text_excerpt": "Northfield University TechFest 2026 14-16 March 2026, Northfield Campus Auditorium. Registration is free for all students. Workshops on robotics, web security and AI. Sign up by entering your student email on the registration desk at the venue or email techfest@northfield.edu. Organised by the Department of Computer Science.",
+    "forms": [],
+    "sensitive_inputs": { "password": false, "payment_card": false, "otp": false, "upi": false, "aadhaar": false, "pan": false, "bank": false },
+    "external_links_count": 3,
+    "top_external_hosts": ["www.northfield.edu", "maps.google.com"],
+    "has_download_links": false,
+    "language_hint": "en",
+    "meta_refresh_target": null,
+    "bot_wall_detected": false
+  },
+  "server_facts": [
+    { "id": "F1", "text": "The QR code decoded to a web URL (https://techfest.northfield.edu/register)." },
+    { "id": "F2", "text": "The URL uses HTTPS." },
+    { "id": "F3", "text": "The destination responded with HTTP 200 and an HTML page after 0 redirects." },
+    { "id": "F4", "text": "The page contains no forms and no password, card, OTP, UPI, Aadhaar, PAN or bank input fields." },
+    { "id": "F5", "text": "The page title is 'TechFest 2026 Registration | Northfield University' (untrusted page content)." }
+  ],
+  "deterministic_floor": { "level": null, "triggered_by": [] }
+}

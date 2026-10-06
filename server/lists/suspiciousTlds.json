@@ -1,0 +1,7 @@
+{
+  "_note": "Weak signal ONLY. Many legitimate sites use these TLDs; this list must never trigger a risk floor on its own.",
+  "tlds": [
+    "zip", "mov", "top", "xyz", "tk", "ml", "ga", "cf", "gq", "icu", "cam", "rest", "buzz",
+    "click", "link", "work", "surf", "monster", "quest", "sbs", "cfd", "cyou"
+  ]
+}
