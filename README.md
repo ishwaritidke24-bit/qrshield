@@ -125,15 +125,6 @@ QRShield includes protection against:
 
 Technical findings are kept separate from **Gemma-derived reasoning**.
 
-### Evaluation
-
-Current verified results:
-
-* **243/243 unit tests passed**
-* **35/35 E2E tests passed**
-* **9/9 live Gemma fixtures matched expected risk levels**
-* **100% deterministic evidence citations matched real server facts**
-
 ### Limitations
 
 * Live destination inspection requires internet access.
